@@ -26,7 +26,7 @@ function Home(): JSX.Element {
     if (index > -1) {
       const updatedPosts = [...posts];
       updatedPosts.splice(index, 1);
-      setPosts(updatedPosts); // Met à jour l'état pour refléter le changement
+      setPosts(updatedPosts);
     }
   };
 

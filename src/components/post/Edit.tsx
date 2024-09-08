@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom'; 
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth0 } from '../../context/auth0-context';
 
-// Interface correspondant à celle du back-end
 interface Post {
   title: string;
   description: string;
@@ -13,14 +12,14 @@ interface Post {
 
 function Edit(): JSX.Element {
   const { getIdTokenClaims } = useAuth0();
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
   let { postId } = useParams();
 
   interface IValues {
     [key: string]: any;
   }
 
-  const [post, setPost] = useState<Post | null>(null);  // Utilisation de l'interface Post
+  const [post, setPost] = useState<Post | null>(null);
   const [values, setValues] = useState<IValues>({});
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
@@ -73,7 +72,7 @@ function Edit(): JSX.Element {
 
   return (
     <div className={'page-wrapper'}>
-      {post && (  // Assurez-vous que post n'est pas null avant de l'afficher
+      {post && (  
         <div className={'col-md-12 form-wrapper'}>
           <h2> Edit Post </h2>
           {submitSuccess && (
@@ -133,7 +132,7 @@ function Edit(): JSX.Element {
               <input
                 type="text"
                 id="date_posted"
-                defaultValue={new Date(post.date_posted).toLocaleDateString()}  // Conversion de la date si nécessaire
+                defaultValue={new Date(post.date_posted).toLocaleDateString()}
                 readOnly
                 className="form-control"
               />

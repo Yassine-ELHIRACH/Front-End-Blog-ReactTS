@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Remplace useHistory par useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import { useAuth0 } from '../../context/auth0-context';
 
 function Create(): JSX.Element {
-  let navigate = useNavigate(); // Remplace history par navigate
+  let navigate = useNavigate(); 
   const { user, getIdTokenClaims } = useAuth0();
 
   interface IValues {
@@ -35,7 +35,7 @@ function Create(): JSX.Element {
     setValues({ ...values, formData });
     setLoading(false);
     setTimeout(() => {
-      navigate('/'); // Remplace history.push('/') par navigate('/')
+      navigate('/');
     }, 1500);
   };
 
